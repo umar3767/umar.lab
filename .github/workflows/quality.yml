@@ -1,0 +1,20 @@
+name: Website quality checks
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    name: Security, markup, assets and regression checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out project
+        uses: actions/checkout@v4
+      - name: Verify Node runtime
+        run: node --version
+      - name: Run the dependency-free site checks
+        run: node --test tests/site-audit.mjs
