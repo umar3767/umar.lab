@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" fill="none">
+<title>Original minimal vector illustration</title>
+<rect width="640" height="360" fill="#ece6df"/>
+<path d="M-20 274C139 201 152 364 305 297S515 213 665 263" fill="none" stroke="#0f3f49" stroke-opacity=".085" stroke-width="2"/>
+<circle cx="318" cy="175" r="139" fill="#d9e3df" fill-opacity=".76"/>
+<circle cx="318" cy="175" r="155" stroke="#0f3f49" stroke-opacity=".11" stroke-width="1.5"/>
+<path d="M49 40h34M49 40v34M591 320h-34M591 320v-34" stroke="#0f3f49" stroke-opacity=".3" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="110" cy="293" r="7" fill="#7f0508" fill-opacity=".72"/>
+<circle cx="538" cy="67" r="5" fill="#0f3f49" fill-opacity=".35"/>
+
+<path d="M208 151v-42c0-19 15-34 34-34h115c19 0 34 15 34 34v42" fill="#f8f6f1" stroke="#0f3f49" stroke-width="8"/>
+<path d="M229 154h143c13 0 23 11 23 23v60H205v-60c0-12 10-23 24-23z" fill="#d2dfd8" stroke="#0f3f49" stroke-width="8"/>
+<path d="M209 173c-18-19-44-10-44 14v61h270v-61c0-24-27-33-44-14" fill="#f8f6f1" stroke="#0f3f49" stroke-width="8" stroke-linejoin="round"/>
+<path d="M203 248v34m196-34v34" stroke="#0f3f49" stroke-width="8" stroke-linecap="round"/>
+<path d="M205 206h189" stroke="#0f3f49" stroke-width="4" opacity=".4"/>
+<path d="M448 119l32-69 30 69z" fill="#f2efea" stroke="#0f3f49" stroke-width="6" stroke-linejoin="round"/>
+<path d="M479 119v117m-23 0h46" stroke="#0f3f49" stroke-width="6" stroke-linecap="round"/>
+<circle cx="479" cy="123" r="5" fill="#7f0508"/>
+</svg>
