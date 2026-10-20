@@ -1,0 +1,28 @@
+name: Browser compatibility matrix
+on:
+  push:
+    paths:
+      - '.github/workflows/browser.yml'
+      - 'playwright.config.mjs'
+      - 'tests/browser.spec.mjs'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  browsers:
+    name: Chromium, Firefox, WebKit and mobile
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install test runner (CI only)
+        run: npm install --no-save --no-package-lock --no-audit --no-fund @playwright/test@1.55.0
+      - name: Install browser engines and system libraries
+        run: npx playwright install --with-deps chromium firefox webkit
+      - name: Test desktop and mobile browsers
+        run: npx playwright test --config playwright.config.mjs
