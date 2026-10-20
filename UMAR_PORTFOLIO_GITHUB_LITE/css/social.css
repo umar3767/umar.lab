@@ -104,3 +104,6 @@
   .contact .links .social__link,.social__icon,.social__arrow{transition:none}
   .contact .links .social__link:hover,.social__link:hover .social__icon,.social__link:hover .social__arrow{transform:none}
 }
+
+/* Disclose third-party form delivery without distracting from the form. */
+.contact .form__privacy{margin-top:18px;color:rgba(236,230,223,.65);font-size:.76rem;line-height:1.55;max-width:45ch}
