@@ -6,6 +6,9 @@ test('home: real assets and ten unique illustrated works', async ({ page }) => {
   page.on('requestfailed', request => problems.push('Network: ' + request.url() + ' ' + request.failure()));
   page.on('console', message => { if (message.type() === 'error') problems.push('Console: ' + message.text()); });
   await page.goto('./index.html');
+  const policy = await page.locator('meta[http-equiv="Content-Security-Policy"]').getAttribute('content');
+  expect(policy).toContain("script-src 'self'");
+  expect(policy).not.toContain('upgrade-insecure-requests');
   const diagnosis = await page.evaluate(() => ({
     contentLoaded: Boolean(window.SITE_CONTENT),
     appLoaded: Boolean(window.Umar),
@@ -91,4 +94,19 @@ test('layout has no document-level overflow and reduced motion disables marquees
     scroll: document.documentElement.scrollWidth
   }));
   expect(archive.scroll).toBeLessThanOrEqual(archive.viewport + 2);
+});
+
+
+test('JavaScript disabled: portfolio and contact options remain usable', async ({ browser }) => {
+  const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
+  const page = await context.newPage();
+  try {
+    await page.goto('http://127.0.0.1:4173/UMAR_PORTFOLIO_GITHUB_LITE/index.html');
+    await expect(page.locator('.nojs-gallery a')).toHaveCount(10);
+    await expect(page.locator('.nojs-contact a')).toHaveCount(3);
+    await page.goto('http://127.0.0.1:4173/UMAR_PORTFOLIO_GITHUB_LITE/works.html');
+    await expect(page.locator('.nojs-gallery a')).toHaveCount(10);
+  } finally {
+    await context.close();
+  }
 });
