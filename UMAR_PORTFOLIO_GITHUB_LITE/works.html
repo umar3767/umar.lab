@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>All Works — Umar Portfolio</title>
+<meta name="description" content="Portfolio of Umar — websites, design, video and Telegram bots.">
+<meta name="theme-color" content="#0f3f49">
+<meta property="og:title" content="Umar Portfolio"><meta property="og:type" content="website">
+<link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="./css/styles.css"><link rel="stylesheet" href="./css/redesign.css">
+</head>
+<body class="page-works">
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+<header class="nav" id="nav">
+  <div class="nav__bar">
+    <a class="logo" href="./index.html" data-i18n-aria="home" aria-label="Umar — home">UMAR<span>.</span></a>
+    <nav class="nav__links" id="navLinks" aria-label="Main navigation" data-i18n-aria="mainNav">
+      <a href="./index.html#works" data-nav="works" data-i18n="nav.works">Works</a>
+      <a href="./index.html#about" data-nav="about" data-i18n="nav.about">About</a>
+      <a href="./index.html#services" data-nav="services" data-i18n="nav.services">Services</a>
+      <a href="./index.html#testimonials" data-nav="testimonials" data-i18n="nav.testimonials" hidden>Testimonials</a>
+      <a href="./index.html#contact" data-nav="contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language" data-i18n-aria="langSwitch">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button><span aria-hidden="true">/</span><button type="button" data-lang="ru" aria-pressed="false">RU</button>
+    </div>
+    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Menu" data-i18n-aria="menu"><i></i><i></i></button>
+  </div>
+</header>
+<main id="main">
+<section class="allworks dark">
+  <div class="wrap"><p class="section-kicker"><span class="dot"></span> 01 / PORTFOLIO ARCHIVE</p><a class="textlink" href="./index.html" data-i18n="backHome">Back to home</a>
+    <h1 class="allworks__title" data-i18n="allWorksTitle">ALL WORKS</h1>
+    <ul class="grid" id="workGrid"></ul>
+    <p class="empty" id="workEmpty" hidden data-i18n="empty"></p></div>
+</section>
+</main>
+<footer class="foot">
+  <div class="wrap foot__in">
+    <a class="logo" href="./index.html" aria-label="Umar" >UMAR<span>.</span></a>
+    <nav aria-label="Footer navigation" data-i18n-aria="footNav" class="foot__nav">
+      <a href="./index.html#works" data-i18n="nav.works">Works</a><a href="./index.html#about" data-i18n="nav.about">About</a><a href="./index.html#services" data-i18n="nav.services">Services</a><a href="./index.html#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <button class="totop" type="button" id="toTop" data-i18n="top">Back to Top ↑</button>
+    <p class="foot__copy">© <span id="year">2026</span> UMAR. <span data-i18n="rights">All rights reserved.</span></p>
+  </div>
+</footer>
+<noscript><p class="noscript">Please enable JavaScript to view this portfolio.</p></noscript>
+<script src="./content.js"></script>
+<script src="./js/app.js"></script>
+<script src="./js/motion.js"></script>
+</body>
+</html>
