@@ -14,13 +14,42 @@
   function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
 
   function card(p, i, hidden) {
-    var url = safeUrl(p.liveUrl), cat = loc(p.category), n = ('0' + (i + 1)).slice(-2);
-    var a = el(url ? 'a' : 'div', 'card');
-    if (url) { a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.setAttribute('aria-label', p.title + (cat ? ', ' + cat : '') + ' — ' + t('open') + ' (' + t('newTab') + ')'); }
+    var url = safeUrl(p.liveUrl), name = typeof p.title === 'string' ? p.title : loc(p.title);
+    var detail = loc(p.category), n = ('0' + (i + 1)).slice(-2);
+    var a = el(url ? 'a' : 'div', 'card card--project');
+    if (url) {
+      a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer';
+      a.setAttribute('aria-label', name + (detail ? ' — ' + detail : '') + '. ' + t('open') + ' (' + t('newTab') + ')');
+    }
     if (hidden) { a.setAttribute('aria-hidden', 'true'); a.tabIndex = -1; }
-    var meta = el('span', 'meta'); meta.appendChild(el('span', '', n + (p.year ? ' / ' + p.year : ''))); meta.appendChild(el('span', 'arrow', '↗'));
-    var body = el('span'); body.appendChild(el('h3', '', p.title)); if (cat) body.appendChild(el('span', 'cat', cat));
-    a.appendChild(meta); a.appendChild(body); return a;
+
+    var visual = el('span', 'project-card__visual');
+    visual.setAttribute('aria-hidden', 'true');
+    if (p.art && /^[a-z-]+$/.test(p.art)) {
+      var img = el('img', 'project-card__artwork');
+      img.src = './assets/project-art/' + p.art + '.svg';
+      img.alt = ''; img.width = 640; img.height = 360;
+      img.decoding = 'async';
+      // Small, cacheable SVGs load eagerly: moving rows should not reveal blank cards.
+      img.loading = 'eager';
+      visual.appendChild(img);
+    } else {
+      visual.appendChild(el('span', 'project-card__fallback', name.slice(0, 1)));
+    }
+    visual.appendChild(el('span', 'project-card__number', n + ' / 10'));
+    visual.appendChild(el('span', 'project-card__corner'));
+
+    var bottom = el('span', 'project-card__bottom');
+    var copy = el('span', 'project-card__copy');
+    copy.appendChild(el('h3', 'project-card__title', name));
+    if (detail) copy.appendChild(el('span', 'cat project-card__description', detail));
+    bottom.appendChild(copy);
+    var arrow = el('span', 'project-card__arrow', '↗');
+    arrow.setAttribute('aria-hidden', 'true');
+    bottom.appendChild(arrow);
+    a.appendChild(visual);
+    a.appendChild(bottom);
+    return a;
   }
   function quote(q, hidden) {
     var d = el('figure', 'quote'); d.style.margin = '0';
