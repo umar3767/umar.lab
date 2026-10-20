@@ -26,7 +26,11 @@
     var d = el('figure', 'quote'); d.style.margin = '0';
     var r = Math.max(1, Math.min(5, Math.round(+q.rating) || 5));
     var st = el('div', 'stars', '★'.repeat(r) + '☆'.repeat(5 - r)); st.setAttribute('role', 'img'); st.setAttribute('aria-label', t('stars').replace('{n}', r));
-    d.appendChild(st); d.appendChild(el('p', '', loc(q.text))); if (hidden) { d.setAttribute('aria-hidden', 'true'); } return d;
+    d.appendChild(st);
+    if (q.category) d.appendChild(el('span', 'review__category', loc(q.category)));
+    d.appendChild(el('p', '', loc(q.text)));
+    if (hidden) { d.setAttribute('aria-hidden', 'true'); }
+    return d;
   }
   function row(items, dir, speed) {
     var r = el('div', 'row'), tr = el('div', 'track'); r.dataset.dir = dir; r.dataset.speed = speed;
@@ -91,9 +95,33 @@
     }
     var cl = $('#contactLinks');
     if (cl) {
-      cl.textContent = ''; var k = C.contacts || {}, tg = k.telegram && safeUrl(k.telegram), ph = k.phone && String(k.phone).replace(/[^\d+]/g, '');
-      if (tg) { var x = el('a', '', t('telegram')); x.href = tg; x.target = '_blank'; x.rel = 'noopener noreferrer'; var li = el('li'); li.appendChild(x); cl.appendChild(li); }
-      if (ph) { var y = el('a', '', t('phone') + ': ' + k.phone); y.href = 'tel:' + ph; var l2 = el('li'); l2.appendChild(y); cl.appendChild(l2); }
+      cl.textContent = '';
+      var k = C.contacts || {};
+      var tg = k.telegram && safeUrl(k.telegram);
+      var wa = k.whatsapp && safeUrl(k.whatsapp);
+      var ph = k.phone && String(k.phone).replace(/[^\d+]/g, '');
+      function addSocial(kind, href, label, external) {
+        var li = el('li', 'social__item');
+        var a = el('a', 'social__link social__link--' + kind);
+        a.href = href;
+        a.setAttribute('aria-label', label);
+        if (external) { a.target = '_blank'; a.rel = 'noopener noreferrer'; }
+        var mark = el('span', 'social__icon');
+        mark.setAttribute('aria-hidden', 'true');
+        var img = el('img');
+        img.src = './assets/icons/' + kind + '.svg';
+        img.alt = ''; img.width = 24; img.height = 24;
+        mark.appendChild(img);
+        a.appendChild(mark);
+        a.appendChild(el('span', 'social__name', label));
+        var arrow = el('span', 'social__arrow', '↗');
+        arrow.setAttribute('aria-hidden', 'true');
+        a.appendChild(arrow);
+        li.appendChild(a); cl.appendChild(li);
+      }
+      if (tg) addSocial('telegram', tg, t('telegram'), true);
+      if (wa) addSocial('whatsapp', wa, t('whatsapp'), true);
+      if (ph) addSocial('phone', 'tel:' + ph, t('phone'), false);
       cl.hidden = !cl.children.length;
     }
     document.dispatchEvent(new CustomEvent('umar:render'));
