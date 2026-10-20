@@ -12,7 +12,7 @@ window.SITE_CONTENT = {
     phone: '+998975591991',
     whatsapp: 'https://wa.me/998975591991',
     // Create a Formspree form and paste its public endpoint here to activate email submissions.
-    formspreeEndpoint: 'https://formspree.io/f/maeqgovj'
+    formspreeEndpoint: 'https://formspree.io/f/xyekqwon'
   },
 
   // Проекты: открываются по liveUrl (живой сайт) в новой вкладке.
