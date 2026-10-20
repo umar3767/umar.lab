@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" fill="none">
+<title>Original minimal vector illustration</title>
+<rect width="640" height="360" fill="#ece6df"/>
+<path d="M-20 274C139 201 152 364 305 297S515 213 665 263" fill="none" stroke="#0f3f49" stroke-opacity=".085" stroke-width="2"/>
+<circle cx="318" cy="175" r="139" fill="#d9e3df" fill-opacity=".76"/>
+<circle cx="318" cy="175" r="155" stroke="#0f3f49" stroke-opacity=".11" stroke-width="1.5"/>
+<path d="M49 40h34M49 40v34M591 320h-34M591 320v-34" stroke="#0f3f49" stroke-opacity=".3" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="110" cy="293" r="7" fill="#7f0508" fill-opacity=".72"/>
+<circle cx="538" cy="67" r="5" fill="#0f3f49" fill-opacity=".35"/>
+
+<rect x="233" y="135" width="132" height="121" rx="29" fill="#faf8f3" stroke="#0f3f49" stroke-width="8"/>
+<rect x="264" y="104" width="70" height="37" rx="7" fill="#d6e0dc" stroke="#0f3f49" stroke-width="7"/>
+<path d="M287 104V89h24v15" stroke="#0f3f49" stroke-width="6" stroke-linecap="round" fill="none"/>
+<path d="M266 183c16-17 51-21 73-1" fill="none" stroke="#7f0508" stroke-width="5" stroke-linecap="round"/>
+<path d="M300 203c-14-12-13-27 0-41 13 14 14 29 0 41z" fill="#7f0508" opacity=".78"/>
+<path d="M411 229c-2-50 11-87 35-109 6 48-3 80-35 109z" fill="#d2c5bb" stroke="#0f3f49" stroke-width="5"/>
+<path d="M410 229c-22-27-41-32-54-37 3 28 18 42 54 37z" fill="#bbcfc5" stroke="#0f3f49" stroke-width="4"/>
+<path d="M410 227 444 125" fill="none" stroke="#0f3f49" stroke-width="4"/>
+<circle cx="197" cy="127" r="8" fill="#7f0508"/>
+</svg>
