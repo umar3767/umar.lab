@@ -16,18 +16,18 @@ window.SITE_CONTENT = {
   },
 
   // Проекты: открываются по liveUrl (живой сайт) в новой вкладке.
-  // { id:'my-site', title:'My Site', category:{en:'Website',ru:'Сайт'}, year:'2026', liveUrl:'https://USER.github.io/REPO/' }
+  // { id:'my-site', title:'Website Type', art:'dental', category:{en:'Short description',ru:'Краткое описание'}, year:'2026', liveUrl:'https://USER.github.io/REPO/' }
   projects: [
-    { id: 'vela-dent', title: 'VELA DENT', category: { en: 'Concept · Dental clinic', ru: 'Демо · Стоматологическая клиника' }, year: '2026', liveUrl: 'https://umar3767.github.io/business-websites-10/01-dental/' },
-    { id: 'march-09', title: 'MARCH / 09', category: { en: 'Concept · Barbershop', ru: 'Демо · Барбершоп' }, year: '2026', liveUrl: 'https://umar3767.github.io/business-websites-10/02-barbershop/' },
-    { id: 'muse-atelier', title: 'MUSE ATELIER', category: { en: 'Concept · Beauty studio', ru: 'Демо · Салон красоты' }, year: '2026', liveUrl: 'https://umar3767.github.io/business-websites-10/03-beauty-salon/' },
-    { id: 'noir-auto', title: 'NOIR / AUTO', category: { en: 'Concept · Car detailing', ru: 'Демо · Детейлинг автомобилей' }, year: '2026', liveUrl: 'https://umar3767.github.io/business-websites-10/04-car-detailing/' },
-    { id: 'loop-academy', title: 'LOOP ACADEMY', category: { en: 'Concept · Learning center', ru: 'Демо · Учебный центр' }, year: '2026', liveUrl: 'https://umar3767.github.io/business-websites-10/05-learning-center/' },
-    { id: 'hush-home', title: 'HUSH HOME', category: { en: 'Concept · Cleaning service', ru: 'Демо · Клининговый сервис' }, year: '2026', liveUrl: 'https://umar3767.github.io/business-websites-10/06-cleaning/' },
-    { id: 'torq-works', title: 'TORQ / WORKS', category: { en: 'Concept · Auto service', ru: 'Демо · Автосервис' }, year: '2026', liveUrl: 'https://umar3767.github.io/business-websites-10/07-auto-service/' },
-    { id: 'forme-objects', title: 'FORME OBJECTS', category: { en: 'Concept · Furniture', ru: 'Демо · Мебель и интерьер' }, year: '2026', liveUrl: 'https://umar3767.github.io/business-websites-10/08-furniture/' },
-    { id: 'strata-rooms', title: 'STRATA ROOMS', category: { en: 'Concept · Renovation studio', ru: 'Демо · Ремонт квартир' }, year: '2026', liveUrl: 'https://umar3767.github.io/business-websites-10/09-renovation/' },
-    { id: 'petal-parade', title: 'PETAL / PARADE', category: { en: 'Concept · Flower shop', ru: 'Демо · Цветочный магазин' }, year: '2026', liveUrl: 'https://umar3767.github.io/business-websites-10/10-flower-shop/' }
+    { id: 'vela-dent', title: 'Dental Clinic', art: 'dental', category: { en: 'Gentle care. Confident smiles.', ru: 'Забота о здоровье и красоте улыбки.' }, year: '2026', liveUrl: 'https://umar3767.github.io/business-websites-10/01-dental/' },
+    { id: 'march-09', title: 'Barbershop', art: 'barbershop', category: { en: 'Sharp cuts. Timeless style.', ru: 'Стрижки с характером и вниманием к деталям.' }, year: '2026', liveUrl: 'https://umar3767.github.io/business-websites-10/02-barbershop/' },
+    { id: 'muse-atelier', title: 'Beauty Studio', art: 'beauty', category: { en: 'A little beauty in every detail.', ru: 'Красота в каждой детали.' }, year: '2026', liveUrl: 'https://umar3767.github.io/business-websites-10/03-beauty-salon/' },
+    { id: 'noir-auto', title: 'Car Detailing', art: 'detailing', category: { en: 'Every finish deserves perfection.', ru: 'Безупречный уход за автомобилем.' }, year: '2026', liveUrl: 'https://umar3767.github.io/business-websites-10/04-car-detailing/' },
+    { id: 'loop-academy', title: 'Learning Center', art: 'education', category: { en: 'A brighter way to learn.', ru: 'Современный подход к обучению.' }, year: '2026', liveUrl: 'https://umar3767.github.io/business-websites-10/05-learning-center/' },
+    { id: 'hush-home', title: 'Cleaning Service', art: 'cleaning', category: { en: 'Fresh spaces. Clear minds.', ru: 'Чистота, в которую хочется вернуться.' }, year: '2026', liveUrl: 'https://umar3767.github.io/business-websites-10/06-cleaning/' },
+    { id: 'torq-works', title: 'Auto Repair', art: 'auto-repair', category: { en: 'Expert care for every mile.', ru: 'Надёжный сервис для каждого маршрута.' }, year: '2026', liveUrl: 'https://umar3767.github.io/business-websites-10/07-auto-service/' },
+    { id: 'forme-objects', title: 'Furniture Studio', art: 'furniture', category: { en: 'Comfort shaped by design.', ru: 'Удобство, воплощённое в дизайне.' }, year: '2026', liveUrl: 'https://umar3767.github.io/business-websites-10/08-furniture/' },
+    { id: 'strata-rooms', title: 'Home Renovation', art: 'renovation', category: { en: 'Better spaces, thoughtfully made.', ru: 'Продуманные перемены для вашего дома.' }, year: '2026', liveUrl: 'https://umar3767.github.io/business-websites-10/09-renovation/' },
+    { id: 'petal-parade', title: 'Flower Shop', art: 'flowers', category: { en: 'Flowers for every meaningful moment.', ru: 'Цветы для особенных моментов.' }, year: '2026', liveUrl: 'https://umar3767.github.io/business-websites-10/10-flower-shop/' }
   ],
 
   // Только НАСТОЯЩИЕ отзывы. Пустой массив = секция скрыта.
