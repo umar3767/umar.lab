@@ -93,3 +93,22 @@
   .allworks .card--project:hover,.allworks .card--project:focus-visible{transform:none}
   .card--project:hover .project-card__artwork,.card--project:focus-visible .project-card__artwork{transform:none}
 }
+
+
+/* Graceful enhancement when JavaScript is disabled. */
+.quote{margin:0}
+.nojs-gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));
+  gap:14px;margin:24px var(--pad,24px);max-width:1400px
+}
+.nojs-gallery a,.nojs-contact a{
+  display:flex;align-items:center;gap:10px;
+  padding:18px;border:1px solid rgba(236,230,223,.32);border-radius:14px;
+  background:rgba(236,230,223,.09);color:#ece6df;text-decoration:none;
+  overflow-wrap:anywhere
+}
+.nojs-gallery a{flex-direction:column;align-items:flex-start}
+.nojs-gallery a small{color:#c1cbc7}
+.nojs-gallery a:focus-visible,.nojs-contact a:focus-visible{outline:3px solid #dbb09c;outline-offset:3px}
+.nojs-contact{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
