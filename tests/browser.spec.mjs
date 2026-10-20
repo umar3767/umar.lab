@@ -3,7 +3,20 @@ import { test, expect } from '@playwright/test';
 test('home: real assets and ten unique illustrated works', async ({ page }) => {
   const problems = [];
   page.on('pageerror', error => problems.push(error.message));
+  page.on('requestfailed', request => problems.push('Network: ' + request.url() + ' ' + request.failure()));
+  page.on('console', message => { if (message.type() === 'error') problems.push('Console: ' + message.text()); });
   await page.goto('./index.html');
+  const diagnosis = await page.evaluate(() => ({
+    contentLoaded: Boolean(window.SITE_CONTENT),
+    appLoaded: Boolean(window.Umar),
+    motionLoaded: Boolean(window.UmarMotion),
+    cards: document.querySelectorAll('#workRows .row').length,
+    scripts: [...document.scripts].map(x => x.src),
+    resources: performance.getEntriesByType('resource').filter(x => /\\.(?:js|css)/.test(x.name)).map(x => x.name)
+  }));
+  if (!diagnosis.appLoaded || !diagnosis.cards) {
+    throw new Error('Bootstrap diagnostics: ' + JSON.stringify({ diagnosis, problems }));
+  }
   await expect(page.locator('#workRows .row')).toHaveCount(2);
   await expect(page.locator('#aboutName')).toHaveText('Umar');
   await expect(page.locator('#testimonials')).toBeVisible();
