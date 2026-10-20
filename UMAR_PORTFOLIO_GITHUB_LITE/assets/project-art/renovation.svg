@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" fill="none">
+<title>Original minimal vector illustration</title>
+<rect width="640" height="360" fill="#ece6df"/>
+<path d="M-20 274C139 201 152 364 305 297S515 213 665 263" fill="none" stroke="#0f3f49" stroke-opacity=".085" stroke-width="2"/>
+<circle cx="318" cy="175" r="139" fill="#d9e3df" fill-opacity=".76"/>
+<circle cx="318" cy="175" r="155" stroke="#0f3f49" stroke-opacity=".11" stroke-width="1.5"/>
+<path d="M49 40h34M49 40v34M591 320h-34M591 320v-34" stroke="#0f3f49" stroke-opacity=".3" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="110" cy="293" r="7" fill="#7f0508" fill-opacity=".72"/>
+<circle cx="538" cy="67" r="5" fill="#0f3f49" fill-opacity=".35"/>
+
+<path d="M189 157 305 78l116 79v123H189z" fill="#faf8f3" stroke="#0f3f49" stroke-width="8" stroke-linejoin="round"/>
+<path d="M169 165 305 68l136 97" stroke="#0f3f49" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="278" y="192" width="55" height="88" rx="2" fill="#d4dfda" stroke="#0f3f49" stroke-width="6"/>
+<rect x="217" y="182" width="37" height="37" fill="#d4dfda" stroke="#0f3f49" stroke-width="6"/>
+<rect x="353" y="182" width="37" height="37" fill="#d4dfda" stroke="#0f3f49" stroke-width="6"/>
+<path d="M236 183v36m-18-18h36m154-18v36m-18-18h36" stroke="#0f3f49" stroke-width="3" opacity=".5"/>
+<path d="M438 101h64v153h-64z" fill="none" stroke="#7f0508" stroke-width="5" stroke-linejoin="round"/>
+<path d="M438 122h20m-20 20h12m-12 20h20m-20 20h12m-12 20h20m-20 20h12" stroke="#7f0508" stroke-width="3.5"/>
+<circle cx="221" cy="93" r="6" fill="#7f0508"/>
+</svg>
