@@ -1,0 +1,95 @@
+
+/* UMAR / Portfolio illustration system - Aquamarine, Concrete, Burgundy. */
+.works .card--project,.allworks .card--project{
+  box-sizing:border-box;width:clamp(292px,34vw,490px);min-height:0;
+  display:flex;flex-direction:column;justify-content:flex-start;gap:0;
+  padding:10px;border:1px solid rgba(236,230,223,.26);border-radius:24px;
+  overflow:hidden;background:linear-gradient(155deg,rgba(236,230,223,.12),rgba(236,230,223,.04));
+  box-shadow:0 14px 35px rgba(4,27,32,.12),inset 0 1px rgba(255,255,255,.07);
+  text-decoration:none;-webkit-tap-highlight-color:transparent;
+  transition:transform .45s cubic-bezier(.16,1,.3,1),border-color .45s ease,background .45s ease,box-shadow .45s ease
+}
+.works .card--project:hover,.works .card--project:focus-visible,
+.allworks .card--project:hover,.allworks .card--project:focus-visible{
+  transform:translateY(-7px);border-color:rgba(236,230,223,.54);
+  background:linear-gradient(145deg,rgba(236,230,223,.17),rgba(236,230,223,.07));
+  box-shadow:0 24px 50px rgba(1,23,28,.24)
+}
+.card--project:focus-visible{outline:3px solid #ddb5a0;outline-offset:4px}
+.card--project .project-card__visual{
+  position:relative;display:block;width:100%;flex-shrink:0;aspect-ratio:16/9;
+  overflow:hidden;border-radius:16px;background:#ece6df;isolation:isolate
+}
+.card--project .project-card__visual::after{
+  content:"";position:absolute;z-index:2;inset:0;pointer-events:none;
+  background:linear-gradient(110deg,transparent 12%,rgba(255,255,255,.20) 48%,transparent 72%);
+  opacity:0;transform:translateX(-43%);
+  transition:transform .85s cubic-bezier(.16,1,.3,1),opacity .55s ease
+}
+.card--project:hover .project-card__visual::after,.card--project:focus-visible .project-card__visual::after{transform:translateX(37%);opacity:1}
+.card--project .project-card__artwork{
+  display:block;width:100%;height:100%;object-fit:cover;transform:scale(1);
+  transition:transform .85s cubic-bezier(.16,1,.3,1)
+}
+.card--project:hover .project-card__artwork,.card--project:focus-visible .project-card__artwork{transform:scale(1.07)}
+.project-card__fallback{display:grid;place-items:center;width:100%;height:100%;font:700 6rem/1 "Space Grotesk",system-ui,sans-serif;color:#0f3f49}
+.card--project .project-card__number{
+  position:absolute;z-index:3;top:14px;left:14px;padding:6px 10px;
+  border:1px solid rgba(15,63,73,.12);border-radius:99px;
+  color:#0f3f49;background:rgba(236,230,223,.84);
+  font:600 .64rem/1.25 "Inter",system-ui,sans-serif;letter-spacing:.11em;
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)
+}
+.card--project .project-card__corner{
+  position:absolute;z-index:3;bottom:15px;right:15px;
+  display:block;width:9px;height:9px;border:2px solid #7f0508;border-radius:50%;background:#ece6df
+}
+.card--project .project-card__bottom{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:12px;
+  width:100%;min-height:110px;padding:20px 10px 13px
+}
+.card--project .project-card__copy{flex:1;min-width:0;display:block}
+.works .card--project .project-card__title,.allworks .card--project .project-card__title{
+  font:700 clamp(1.57rem,2.45vw,2.28rem)/1.09 "Space Grotesk","Inter",system-ui,sans-serif;
+  letter-spacing:-.055em;color:#ece6df;overflow-wrap:break-word
+}
+.card--project .cat.project-card__description{
+  display:block;margin-top:9px;color:#c3d0ca;
+  font:400 clamp(.78rem,1.05vw,.9rem)/1.5 "Inter",system-ui,sans-serif;letter-spacing:0
+}
+.card--project .project-card__arrow{
+  flex:0 0 43px;display:grid;place-items:center;width:43px;height:43px;
+  border:1px solid rgba(236,230,223,.28);border-radius:50%;
+  background:rgba(236,230,223,.07);color:#f1d1c7;
+  font:400 1.55rem/1 "Space Grotesk",system-ui,sans-serif;
+  transition:transform .45s cubic-bezier(.16,1,.3,1),background .35s ease,border-color .35s ease
+}
+.card--project:hover .project-card__arrow,.card--project:focus-visible .project-card__arrow{
+  transform:translate(3px,-3px);background:#7f0508;border-color:#9c4748;color:#fff4ef
+}
+.allworks .grid .card--project{width:100%;max-width:none;min-height:0}
+.allworks .grid li{min-width:0}
+@media(max-width:860px){
+  .works .card--project{width:min(80vw,390px)}
+  .card--project .project-card__bottom{min-height:108px;padding:17px 9px 11px}
+}
+@media(max-width:560px){
+  .works .card--project{width:min(84vw,360px);padding:8px;border-radius:19px}
+  .card--project .project-card__visual{border-radius:12px}
+  .card--project .project-card__bottom{min-height:101px}
+  .works .card--project .project-card__title,.allworks .card--project .project-card__title{font-size:clamp(1.48rem,6vw,1.87rem)}
+  .card--project .cat.project-card__description{font-size:.78rem}
+  .card--project .project-card__arrow{flex-basis:39px;width:39px;height:39px}
+  .card--project .project-card__number{top:10px;left:10px;font-size:.59rem}
+}
+@media(max-width:350px){
+  .card--project .project-card__bottom{padding:15px 5px 10px;gap:8px}
+  .card--project .cat.project-card__description{font-size:.73rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .works .card--project,.allworks .card--project,.card--project .project-card__artwork,
+  .card--project .project-card__visual::after,.card--project .project-card__arrow{transition:none!important;animation:none!important}
+  .works .card--project:hover,.works .card--project:focus-visible,
+  .allworks .card--project:hover,.allworks .card--project:focus-visible{transform:none}
+  .card--project:hover .project-card__artwork,.card--project:focus-visible .project-card__artwork{transform:none}
+}
