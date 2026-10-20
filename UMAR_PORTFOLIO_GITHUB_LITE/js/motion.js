@@ -119,7 +119,7 @@
       tr.style.transform = ''; row.classList.toggle('is-static', reduceMotion);
       if (reduceMotion) return;
       const original = [...tr.children]; if (!original.length) return;
-      const gap = parseFloat(getComputedStyle(tr).columnGap) || 20;
+      const gap = parseFloat(getComputedStyle(tr).columnGap || getComputedStyle(tr).gap) || 20;
       const clone = node => {
         const copy = node.cloneNode(true); copy.dataset.clone = '1'; copy.setAttribute('aria-hidden', 'true'); copy.tabIndex = -1;
         copy.querySelectorAll('a,button,input').forEach(el => el.tabIndex = -1); return copy;
@@ -153,8 +153,12 @@
     targetX = targetY = pointerX = pointerY = 0; pointers.forEach(el => el.style.transform = '');
     scrollDirty = true; syncHero(); reveal(); setupRows();
   }
-  reduced.addEventListener('change', preferenceChanged);
-  mouse.addEventListener('change', () => { targetX = targetY = 0; schedule(); });
+  function observeMediaQuery(query, handler) {
+    if (query.addEventListener) query.addEventListener('change', handler);
+    else if (query.addListener) query.addListener(handler);
+  }
+  observeMediaQuery(reduced, preferenceChanged);
+  observeMediaQuery(mouse, () => { targetX = targetY = 0; schedule(); });
   document.addEventListener('umar:render', () => { reveal(); setupRows(); });
   window.UmarMotion = { rows: () => rows.map(s => ({ dir: s.dir, pos: s.pos, speed: s.speed, base: s.base, pause: s.pause, sw: s.width })) };
   syncHero(); reveal(); setupRows(); visibility();
