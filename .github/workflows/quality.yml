@@ -13,7 +13,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Check out project
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Verify Node runtime
         run: node --version
       - name: Run the dependency-free site checks
