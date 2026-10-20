@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" fill="none">
+<title>Original minimal vector illustration</title>
+<rect width="640" height="360" fill="#ece6df"/>
+<path d="M-20 274C139 201 152 364 305 297S515 213 665 263" fill="none" stroke="#0f3f49" stroke-opacity=".085" stroke-width="2"/>
+<circle cx="318" cy="175" r="139" fill="#d9e3df" fill-opacity=".76"/>
+<circle cx="318" cy="175" r="155" stroke="#0f3f49" stroke-opacity=".11" stroke-width="1.5"/>
+<path d="M49 40h34M49 40v34M591 320h-34M591 320v-34" stroke="#0f3f49" stroke-opacity=".3" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="110" cy="293" r="7" fill="#7f0508" fill-opacity=".72"/>
+<circle cx="538" cy="67" r="5" fill="#0f3f49" fill-opacity=".35"/>
+
+<path d="M252 210h112l-20 70h-72z" fill="#faf8f3" stroke="#0f3f49" stroke-width="8" stroke-linejoin="round"/>
+<path d="M255 223h106" stroke="#7f0508" stroke-width="5" opacity=".7"/>
+<path d="M306 212c-9-48-8-93-15-139m17 139c18-48 39-79 59-123m-59 123c-30-34-49-57-81-78" stroke="#0f3f49" stroke-width="6" stroke-linecap="round"/>
+<path d="M312 173c-22-7-33-24-35-39 22 4 35 15 35 39z" fill="#c1d2c9" stroke="#0f3f49" stroke-width="4"/>
+<path d="M323 163c2-24 13-36 32-44-1 24-13 38-32 44z" fill="#d4dfd9" stroke="#0f3f49" stroke-width="4"/>
+<g fill="#f8f5f0" stroke="#7f0508" stroke-width="4.5">
+<ellipse cx="288" cy="78" rx="13" ry="25" transform="rotate(-20 288 78)"/>
+<ellipse cx="263" cy="93" rx="13" ry="24" transform="rotate(-72 263 93)"/>
+<ellipse cx="310" cy="99" rx="13" ry="24" transform="rotate(58 310 99)"/>
+<ellipse cx="363" cy="89" rx="15" ry="26" transform="rotate(20 363 89)"/>
+<ellipse cx="386" cy="99" rx="15" ry="25" transform="rotate(72 386 99)"/>
+<ellipse cx="342" cy="107" rx="14" ry="24" transform="rotate(-56 342 107)"/>
+<ellipse cx="223" cy="129" rx="13" ry="24" transform="rotate(-24 223 129)"/>
+<ellipse cx="199" cy="146" rx="13" ry="25" transform="rotate(-75 199 146)"/>
+<ellipse cx="242" cy="148" rx="13" ry="25" transform="rotate(57 242 148)"/>
+</g>
+<circle cx="284" cy="99" r="13" fill="#7f0508"/><circle cx="364" cy="109" r="13" fill="#7f0508"/><circle cx="224" cy="151" r="13" fill="#7f0508"/>
+</svg>
