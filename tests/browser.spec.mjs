@@ -115,7 +115,7 @@ test('JavaScript disabled: portfolio and contact options remain usable', async (
 test('short homepage is rendered directly without a redirect', async ({ page }) => {
   const response = await page.goto('./');
   expect(response.ok()).toBeTruthy();
-  expect(page.url()).toMatch(/:\\d+\\/$/);
+  expect(new URL(page.url()).pathname).toBe('/');
   await expect(page.locator('.hero__title')).toBeVisible();
   await expect(page.locator('#workRows .card--project:not([data-clone])')).toHaveCount(10);
   await expect(page.locator('a[href="./works.html"]')).toHaveCount(1);
