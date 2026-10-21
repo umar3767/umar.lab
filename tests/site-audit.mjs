@@ -80,7 +80,7 @@ test('text content and external links are never interpolated as HTML', () => {
   assert.match(app, /textContent = text/);
   assert.match(app, /rel = 'noopener noreferrer'/);
   assert.match(app, /x\.protocol === 'https:'/);
-  assert.match(app, /\/assets\/project-art\//);
+  assert.match(app, /assetBase \+ 'project-art\//);
   assert.match(app, /aria-label/);
 });
 
@@ -136,4 +136,33 @@ test('CSS is syntactically balanced and illustrations remain lightweight', () =>
   const arts = readdirSync(path.join(site, 'assets/project-art'));
   const total = arts.reduce((sum, f) => sum + statSync(path.join(site, 'assets/project-art', f)).size, 0);
   assert.ok(total < 100_000, 'vector illustrations should stay cache-friendly');
+});
+
+
+test('the short root URLs serve the full site without a redirect', () => {
+  const rootHome = readFileSync(path.join(root, 'index.html'), 'utf8');
+  const rootWorks = readFileSync(path.join(root, 'works.html'), 'utf8');
+  const legacyHome = read('index.html');
+  const legacyWorks = read('works.html');
+  assert.doesNotMatch(rootHome, /http-equiv=["']refresh["']/);
+  assert.match(rootHome, /<section class="hero"/);
+  assert.match(rootHome, /<div class="rows" id="workRows"/);
+  assert.match(rootWorks, /<ul class="grid" id="workGrid"/);
+  assert.match(rootHome, /href="\.\/works\.html"/);
+  assert.match(rootHome, /href="https:\/\/umar3767\.github\.io\/umar\.lab\/"/);
+  assert.match(rootWorks, /href="https:\/\/umar3767\.github\.io\/umar\.lab\/works\.html"/);
+  assert.equal((rootHome.match(/business-websites-10\//g) || []).length, 10);
+  assert.equal((rootWorks.match(/business-websites-10\//g) || []).length, 10);
+  for (const [page, source] of [['index.html', rootHome], ['works.html', rootWorks]]) {
+    assert.match(source, /http-equiv="Content-Security-Policy"/);
+    assert.match(source, /src="\.\/UMAR_PORTFOLIO_GITHUB_LITE\/js\/app\.js"/);
+    assert.match(source, /src="\.\/UMAR_PORTFOLIO_GITHUB_LITE\/js\/loader\.js"/);
+    assert.match(source, /href="\.\/UMAR_PORTFOLIO_GITHUB_LITE\/css\/styles\.css"/);
+    for (const match of source.matchAll(/(?:src|href)="(\.\/UMAR_PORTFOLIO_GITHUB_LITE\/[^"#?]+\.(?:js|css|png|svg))"/g)) {
+      assert.ok(existsSync(path.join(root, match[1])), page + ': missing resource ' + match[1]);
+    }
+  }
+  assert.match(legacyHome, /id="workRows"/);
+  assert.match(legacyWorks, /id="workGrid"/);
+  assert.match(read('js/app.js'), /new URL\('\.\.\/assets\/', scriptUrl\)/);
 });
