@@ -3,6 +3,9 @@
   'use strict';
   var C = window.SITE_CONTENT || { ui: { en: {} }, projects: [], testimonials: [], services: [], about: {}, contacts: {} };
   var KEY = 'umar-lang', lang = C.localeDefault || 'en';
+  // Resolve assets relative to the script, so both short root URLs and legacy URLs work.
+  var scriptUrl = document.currentScript && document.currentScript.src;
+  var assetBase = scriptUrl ? new URL('../assets/', scriptUrl).href : './assets/';
   try { var s = localStorage.getItem(KEY); if (s === 'en' || s === 'ru') lang = s; } catch (e) {}
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
@@ -27,7 +30,7 @@
     visual.setAttribute('aria-hidden', 'true');
     if (p.art && /^[a-z-]+$/.test(p.art)) {
       var img = el('img', 'project-card__artwork');
-      img.src = './assets/project-art/' + p.art + '.svg';
+      img.src = assetBase + 'project-art/' + p.art + '.svg';
       img.alt = ''; img.width = 640; img.height = 360;
       img.decoding = 'async';
       // Small, cacheable SVGs load eagerly: moving rows should not reveal blank cards.
@@ -139,7 +142,7 @@
         var mark = el('span', 'social__icon');
         mark.setAttribute('aria-hidden', 'true');
         var img = el('img');
-        img.src = './assets/icons/' + kind + '.svg';
+        img.src = assetBase + 'icons/' + kind + '.svg';
         img.alt = ''; img.width = 24; img.height = 24;
         mark.appendChild(img);
         a.appendChild(mark);
