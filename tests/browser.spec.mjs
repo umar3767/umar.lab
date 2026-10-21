@@ -101,12 +101,36 @@ test('JavaScript disabled: portfolio and contact options remain usable', async (
   const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
   const page = await context.newPage();
   try {
-    await page.goto('http://127.0.0.1:4173/UMAR_PORTFOLIO_GITHUB_LITE/index.html');
+    await page.goto('http://127.0.0.1:4173/index.html');
     await expect(page.locator('.nojs-gallery a')).toHaveCount(10);
     await expect(page.locator('.nojs-contact a')).toHaveCount(3);
-    await page.goto('http://127.0.0.1:4173/UMAR_PORTFOLIO_GITHUB_LITE/works.html');
+    await page.goto('http://127.0.0.1:4173/works.html');
     await expect(page.locator('.nojs-gallery a')).toHaveCount(10);
   } finally {
     await context.close();
   }
+});
+
+
+test('short homepage is rendered directly without a redirect', async ({ page }) => {
+  const response = await page.goto('./');
+  expect(response.ok()).toBeTruthy();
+  expect(page.url()).toMatch(/:\\d+\\/$/);
+  await expect(page.locator('.hero__title')).toBeVisible();
+  await expect(page.locator('#workRows .card--project:not([data-clone])')).toHaveCount(10);
+  await expect(page.locator('a[href="./works.html"]')).toHaveCount(1);
+  const urls = await page.locator('.hero__hand').evaluateAll(images => images.map(img => ({ path: img.getAttribute('src'), loaded: img.complete && img.naturalWidth > 0 })));
+  expect(urls).toHaveLength(2);
+  expect(urls.every(x => x.loaded && x.path.startsWith('./UMAR_PORTFOLIO_GITHUB_LITE/assets/'))).toBeTruthy();
+});
+
+test('short works URL and existing legacy URLs both remain accessible', async ({ page }) => {
+  await page.goto('./works.html');
+  await expect(page.locator('#workGrid .card--project')).toHaveCount(10);
+  const links = await page.locator('#workGrid .card--project').evaluateAll(items => items.map(a => a.getAttribute('href')));
+  expect(new Set(links).size).toBe(10);
+  await page.goto('./UMAR_PORTFOLIO_GITHUB_LITE/index.html');
+  await expect(page.locator('#workRows .row')).toHaveCount(2);
+  await page.goto('./UMAR_PORTFOLIO_GITHUB_LITE/works.html');
+  await expect(page.locator('#workGrid .card--project')).toHaveCount(10);
 });
