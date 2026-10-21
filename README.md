@@ -6,11 +6,11 @@ A lightweight, bilingual (English / Russian) portfolio published with GitHub Pag
 
 ## How it works
 
-- `index.html` redirects to `UMAR_PORTFOLIO_GITHUB_LITE/`, where the real home page lives.
-- `UMAR_PORTFOLIO_GITHUB_LITE/content.js` is the single source of truth for projects, reviews, contact links, text and translations.
-- `UMAR_PORTFOLIO_GITHUB_LITE/index.html` is the landing page; `works.html` is the full project gallery.
+- Root `index.html` serves the entire homepage at `/umar.lab/` without redirecting to a long folder path.
+- `UMAR_PORTFOLIO_GITHUB_LITE/content.js` remains the **single source of truth** for projects, reviews, contact links, text and translations. Both short and legacy URLs load it.
+- Root `works.html` serves the full gallery at `/umar.lab/works.html`. Older pages inside `UMAR_PORTFOLIO_GITHUB_LITE/` remain reachable for backward compatibility.
 - `css/` contains scoped design layers, including the shared loading screen and project cards.
-- `js/` handles text-only DOM rendering, motion, loading state and the Formspree contact form.
+- `js/` handles text-only DOM rendering, motion, loading state and the Formspree contact form. Assets are resolved relative to `app.js` so both short and legacy routes work.
 - `assets/` includes locally hosted vector illustrations, icons and fonts. No third-party UI libraries are needed.
 
 ## Editing from a phone
